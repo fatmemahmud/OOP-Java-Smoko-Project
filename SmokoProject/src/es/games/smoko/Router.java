@@ -3,13 +3,13 @@ package es.games.smoko;
 public class Router {
 
 	   public static final int DIRECTION_NONE = 0, DIRECTION_RIGHT = 1, DIRECTION_LEFT = -1, DIRECTION_UP = 2, DIRECTION_DOWN = -2;
-	    private Snake snake;
+	    private Smoko smoko;
 	    private Board board;
 	    private int direction;
 	    private boolean gameOver;
 
-	    public Router(Snake snake, Board board) {
-	        this.snake = snake;
+	    public Router(Smoko smoko, Board board) {
+	        this.smoko = smoko;
 	        this.board = board;
 	    }
 
@@ -20,15 +20,15 @@ public class Router {
 	    public void update() {
 	        if (!gameOver) {
 	            if (direction != DIRECTION_NONE) {
-	                Cell nextCell = getNextCell(snake.head);
+	                Cell nextCell = getNextCell(smoko.head);
 
-	                if (snake.checkCrash(nextCell)) {
+	                if (smoko.checkCrash(nextCell)) {
 	                    setDirection(DIRECTION_NONE);
 	                    gameOver = true;
 	                } else {
-	                    snake.move(nextCell);
+	                	smoko.move(nextCell);
 	                    if (nextCell.type == Cell.CELL_TYPE_FOOD) {
-	                        snake.grow();
+	                    	smoko.grow();
 	                        board.generateFood();
 	                    }
 	                }
