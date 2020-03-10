@@ -11,12 +11,15 @@ import java.awt.geom.Rectangle2D;
 import javax.swing.JLabel;
 
 public class Cell extends JLabel{
-	public int mWidth = 20;
-	public int mDirection = Router.RIGHT;
+	
+	public int mWidth 		= 20;
+	public int mDirection 	= Router.RIGHT;
 	private Cell Cell;
 
-    public Cell() 
+	Cell() 
     {
+		
+		
     	setBounds(100, 100, mWidth, mWidth);
     	
     }
@@ -34,7 +37,7 @@ public class Cell extends JLabel{
 		
 		g2.draw(rect);
 		
-		g2.setColor(Color.red);
+		g2.setColor(Color.green);
 		
 		g2.fill(rect);
        }
@@ -84,11 +87,11 @@ public class Cell extends JLabel{
 	 
 	 C.mDirection = mDirection;
 	 
-	return Cell;
+	return C;
 	 
  }
  
- public void  Movement() {
+ public void  Movement() { // funkciq za opredelqne na posokata 
 	 
 	  if(mDirection == Router.LEFT)
 		  LeftGo();
